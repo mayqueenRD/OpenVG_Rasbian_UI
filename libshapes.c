@@ -589,3 +589,16 @@ void BackgroundRGB(unsigned int r, unsigned int g, unsigned int b, VGfloat a) {
 	Fill(r, g, b, a);
 	Rect(0, 0, state->screen_width, state->screen_height);
 }
+
+
+VGImage ResizeImage(VGImage src, int width, int height)
+{
+	int orig_width = vgGetParameteri(src, VG_IMAGE_WIDTH);
+	int orig_height = vgGetParameteri(src, VG_IMAGE_HEIGHT);
+	printf("(%d, %d)\n", orig_width, orig_height);
+ 
+	VGImage dst = vgCreateImage(VG_sABGR_8888, width, height, VG_IMAGE_QUALITY_BETTER);
+
+	vgCopyImage(dst, 0, 0,src,0,0,width, height,0);
+	return dst;
+}

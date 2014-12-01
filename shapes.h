@@ -46,6 +46,7 @@ extern "C" {
 	extern void saveterm();
 	extern void restoreterm();
 	extern void rawterm();
+	extern VGImage ResizeImage(VGImage src, int width, int height);
 #if defined(__cplusplus)
 }
 #endif
